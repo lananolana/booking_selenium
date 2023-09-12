@@ -18,7 +18,10 @@ def browser():
     chrome_options.add_argument("--disable-infobars") # Disabling infobars
     chrome_options.add_argument("--disable-extensions") # Disabling extensions
     chrome_options.add_argument("--disable-dev-shm-usage") # Overcome limited resource problems
-    chrome_options.add_argument("--headless") # Special mode "without browser"
+    # chrome_options.add_argument("--headless") # Special mode "without browser"
+
+    user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+    chrome_options.add_argument(f"User-Agent={user_agent}")
 
     service = Service()
     driver = webdriver.Chrome(service = service, options = chrome_options)
