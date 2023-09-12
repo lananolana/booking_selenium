@@ -19,6 +19,6 @@ class InputHelper():
         """
         input_field = self.driver.find_element(By.ID, value = input_id)
         input_field.click()
-        input_field.send_keys()
+        input_field.send_keys(data)
         time.sleep(1)
         return input_field
