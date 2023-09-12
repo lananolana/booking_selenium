@@ -5,7 +5,7 @@ import time
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-from tests.base_page import BasePage
+from pages.base_page import BasePage
 
 class LoginLocators:
     """
