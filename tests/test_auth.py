@@ -5,8 +5,8 @@ import pytest
 
 from loguru import logger
 from selenium.webdriver.common.by import By
-from tests.base_page import BasePage
-from tests.login_page import Login
+from pages.base_page import BasePage
+from pages.login_page import Login
 from utils.helpers import InputHelper
 from utils.config import BASE_URL, ACCOUNT_URL, USERNAME, USERNAME_WITHOUT_AT_SIGN, PASSWORD
 
