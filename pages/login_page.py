@@ -9,10 +9,9 @@ from pages.base_page import BasePage
 
 class LoginLocators:
     """
-    Locators for login page
+    Locator for login page
     """
     LOGIN = (By.CSS_SELECTOR, '[data-testid*="header-sign-in-button"]')
-    BUTTON = (By.CSS_SELECTOR, '[type*="submit"]')
 
 class Login(BasePage):
     """
@@ -28,13 +27,6 @@ class Login(BasePage):
         """
         login_button = self.find_element(LoginLocators.LOGIN)
         login_button.click()
-    
-    def submit_button_click(self):
-        """
-        Submit button click
-        """
-        submit_button = self.find_element(LoginLocators.BUTTON)
-        submit_button.click()
 
     def click_and_hold(self, locator):
         """
