@@ -2,8 +2,15 @@
 POM base page
 """
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from utils.config import BASE_URL
+
+class BaseLocators:
+    """
+    Locators for base page
+    """
+    BUTTON = (By.CSS_SELECTOR, '[type*="submit"]')
 
 class BasePage:
     """
@@ -42,9 +49,10 @@ class BasePage:
         """
         return WebDriverWait(self.driver, time).until(EC.url_contains(locator),
                                                       message = f"URL doesn't contain {locator}")
-
-    def go_to_site(self):
+    
+    def submit_button_click(self):
         """
-        Get base URL
+        Submit button click
         """
-        return self.driver.get(self.base_url)
+        submit_button = self.find_element(BaseLocators.BUTTON)
+        submit_button.click()
