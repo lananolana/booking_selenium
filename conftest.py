@@ -6,6 +6,10 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from pages.base_page import BasePage
+from pages.login_page import Login
+from pages.search_page import Search
+from utils.helpers import InputHelper
 
 @pytest.fixture(scope = "session")
 def browser():
@@ -27,3 +31,18 @@ def browser():
     driver = webdriver.Chrome(service = service, options = chrome_options)
     yield driver
     driver.quit()
+
+@pytest.fixture(scope = "module")
+def common_classes(browser):
+    """
+    Classes for tests
+    """
+    login_page = Login(browser)
+    base_page = BasePage(browser)
+    input_helper = InputHelper(browser)
+
+    return {
+        "login_page": login_page,
+        "base_page": base_page,
+        "input_helper": input_helper
+    }
