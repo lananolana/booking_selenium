@@ -11,6 +11,7 @@ class BaseLocators:
     Locators for base page
     """
     BUTTON = (By.CSS_SELECTOR, '[type*="submit"]')
+    DECLINE_COOKIES_BUTTON = (By.ID, "onetrust-reject-all-handler")
 
 class BasePage:
     """
@@ -56,3 +57,10 @@ class BasePage:
         """
         submit_button = self.find_element(BaseLocators.BUTTON)
         submit_button.click()
+    
+    def decline_cookies(self):
+        """
+        Decline cookies
+        """
+        decline_button = self.find_element(BaseLocators.DECLINE_COOKIES_BUTTON)
+        decline_button.click()
