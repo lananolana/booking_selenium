@@ -6,6 +6,8 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from pages.base_page import BasePage
+from utils.helpers import InputHelper
+from utils.config import ACCOUNT_URL
 
 class LoginLocators:
     """
@@ -39,4 +41,18 @@ class Login(BasePage):
         time.sleep(8)
         actions.release().perform()
         time.sleep(5)
+    
+    def enter_email(self, email):
+        base_page = BasePage(self.browser)
+        base_page.find_clickable_element((By.ID, "username"))
         
+        input_helper = InputHelper(self.browser)
+        input_helper.enter_input(input_id = 'username', data = email)
+    
+    def enter_password(self, password):
+        base_page = BasePage(self.browser)
+        base_page.check_url(("password"))
+        base_page.find_clickable_element((By.ID, "password"))
+        
+        input_helper = InputHelper(self.browser)
+        input_helper.enter_input(input_id = 'password', data = password)
