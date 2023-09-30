@@ -4,7 +4,7 @@ Authorization flow
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from pages.login_page import Login
-from utils.config import BASE_URL, USERNAME, USERNAME_WITHOUT_AT_SIGN, PASSWORD
+from utils.config import *
 
 def test_robot_auth(browser):
     """
