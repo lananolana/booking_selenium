@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from pages.base_page import BasePage
 from utils.helpers import InputHelper
-from utils.config import ACCOUNT_URL
 
 class LoginLocators:
     """
@@ -43,6 +42,9 @@ class Login(BasePage):
         time.sleep(5)
     
     def enter_email(self, email):
+        """
+        Enter email function
+        """
         base_page = BasePage(self.browser)
         base_page.find_clickable_element((By.ID, "username"))
         
@@ -50,6 +52,9 @@ class Login(BasePage):
         input_helper.enter_input(input_id = 'username', data = email)
     
     def enter_password(self, password):
+        """
+        Enter password function
+        """
         base_page = BasePage(self.browser)
         base_page.check_url(("password"))
         base_page.find_clickable_element((By.ID, "password"))
