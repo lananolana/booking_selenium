@@ -3,7 +3,7 @@ Search flow
 """
 from pages.search_page import Search
 from pages.base_page import BasePage
-from utils.config import BASE_URL, CITY, CHECK_IN, CHECK_OUT
+from utils.config import *
 
 def test_basic_search(browser):
     """
